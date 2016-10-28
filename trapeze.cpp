@@ -7,13 +7,13 @@ using namespace std;
 
 Trapeze::Trapeze()
 {
-	Position empty_pos;
+	/*Position empty_pos;
 	empty_pos.x = 0;
 	empty_pos.y = 0;
 	Trapeze *empty_href = new Trapeze(empty_pos, empty_pos, 0.0, 0.0);
 	Trapeze empty = *empty_href;
 	delete empty_href;
-	*this = empty;
+	*this = empty;*/
 }
 
 Trapeze::Trapeze(Position in_pos1, Position in_pos2, double len_a, double len_b) : pos1(in_pos1), pos2(in_pos2), LenA(len_a), LenB(len_b) {
@@ -48,6 +48,12 @@ double Trapeze::Square() {
 }*/
 Trapeze::~Trapeze() {
 	//cout << "Trapeze deleted" << std::endl;
+}
+
+std::ostream& Trapeze::toStream(std::ostream& os)
+{
+	os << *this;
+	return os;
 }
 
 std::ostream& operator<<(std::ostream& os, const Trapeze& obj)

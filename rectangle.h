@@ -13,8 +13,9 @@ public:
 	Rectangle(Position in_pos, double len_a, double len_b);
 	Rectangle(const Rectangle &orig);
 	double Square() override;
-	void Print() override;
+	//void Print() override;
 	virtual ~Rectangle();
+	std::ostream& toStream(std::ostream& os) override;
 	friend std::ostream& operator<<(std::ostream& os, const Rectangle& obj);
 	friend std::istream& operator>>(std::istream& is, Rectangle& obj);
 private:

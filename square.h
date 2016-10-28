@@ -13,8 +13,9 @@ public:
 	FSquare(Position in_pos, double length);
 	FSquare(const FSquare &orig);
 	double Square() override;
-	void Print() override;
+	//void Print() override;
 	virtual ~FSquare();
+	std::ostream& toStream(std::ostream& os) override;
 	double GetLength();
 	friend std::ostream& operator<<(std::ostream& os, const FSquare& obj);
 	friend std::istream& operator>>(std::istream& is, FSquare& obj);

@@ -7,13 +7,13 @@ using namespace std;
 
 Rectangle::Rectangle()
 {
-	Position empty_pos;
+	/*Position empty_pos;
 	empty_pos.x = 0;
 	empty_pos.y = 0;
 	Rectangle *empty_href = new Rectangle(empty_pos, 0.0, 0.0);
 	Rectangle empty = *empty_href;
 	delete empty_href;
-	*this = empty;
+	*this = empty;*/
 }
 
 Rectangle::Rectangle(Position in_pos, double len_a, double len_b) : pos(in_pos), LenA(len_a), LenB(len_b) {
@@ -45,6 +45,12 @@ double Rectangle::Square() {
 }*/
 Rectangle::~Rectangle() {
 	//cout << "Rectangle deleted" << std::endl;
+}
+
+std::ostream& Rectangle::toStream(std::ostream& os)
+{
+	os << *this;
+	return os;
 }
 
 std::ostream& operator<<(std::ostream& os, const Rectangle& obj)

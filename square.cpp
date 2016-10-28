@@ -7,13 +7,13 @@ using namespace std;
 
 FSquare::FSquare()
 {
-	Position empty_pos;
+	/*Position empty_pos;
 	empty_pos.x = 0;
 	empty_pos.y = 0;
 	FSquare *empty_href = new FSquare(empty_pos, 0.0);
 	FSquare empty = *empty_href;
 	delete empty_href;
-	*this = empty;
+	*this = empty;*/
 }
 
 FSquare::FSquare(Position in_pos, double length) : pos(in_pos), len(length)
@@ -42,16 +42,23 @@ double FSquare::Square()
 	return this->len * this->len;
 }
 
-void FSquare::Print()
+/*void FSquare::Print()
 {
 	cout << "Position: ";
-	this->pos.Print();
+	//this->pos.Print();
+	cout << pos << endl;
 	cout << "Side length: " << this->len << endl;
-}
+}*/
 
 FSquare::~FSquare()
 {
 	//cout << "FSquare deleted" << std::endl;
+}
+
+std::ostream& FSquare::toStream(std::ostream& os)
+{
+	os << *this;
+	return os;
 }
 
 double FSquare::GetLength()

@@ -13,8 +13,9 @@ public:
 	Trapeze(Position in_pos1, Position in_pos2, double len_a, double len_b);
 	Trapeze(const Trapeze &orig);
 	double Square() override;
-	void Print() override;
+	//void Print() override;
 	virtual ~Trapeze();
+	std::ostream& toStream(std::ostream& os) override;
 	friend std::ostream& operator<<(std::ostream& os, const Trapeze& obj);
 	friend std::istream& operator>>(std::istream& is, Trapeze& obj);
 private:

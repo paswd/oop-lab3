@@ -1,16 +1,19 @@
 #include <iostream>
-#include "figure.h"
-#include "stack.h"
 #include "square.h"
+#include "trapeze.h"
+#include "rectangle.h"
+#include "TStack.h"
 
 using namespace std;
 
 int main(void)
 {
-	Stack *stack = new Stack;
+	TStack *stack = new TStack;
 	cout << "-------------------------------------------\n";
 	cout << "Commands:\n";
-	cout << "a <value> - push to stack\n";
+	cout << "s <value> - push Square to stack\n";
+	cout << "t <value> - push Trapeze to stack\n";
+	cout << "r <value> - push Rectangle to stack\n";
 	cout << "d - pop from stack and print popped item\n";
 	cout << "p - print stack\n";
 	cout << "q - exit\n";
@@ -20,7 +23,7 @@ int main(void)
 		//cout << "%d\n", cnt;
 		//cnt++;
 		char cmd;
-		Figure value = GetEmptyFigure();
+		std::shared_ptr<Figure> value;
 		bool is_finished = false;
 		scanf("%c", &cmd);
 		switch (cmd) {
@@ -28,27 +31,25 @@ int main(void)
 				is_finished = true;
 				break;
 			case 's':
-				FSquare s_value;
 				//value = (Item) FSquare(std::cin);
-				cin >> s_value;
-				stack->Push(s_value);
+				//value 
+				//cin >> value;
+				stack->push(std::make_shared <FSquare> (cin));
 				break;
 			case 't':
 				//value = (Item) FSquare(std::cin);
-				Trapeze t_value;
-				cin >> t_value;
-				stack->Push(t_value);
+				//cin >> value;
+				stack->push(std::make_shared <Trapeze> (cin));
 				break;
 			case 'r':
 				//value = (Item) FSquare(std::cin);
-				Rectangle r_value;
-				cin >> r_value;
-				stack->Push(r_value);
+				//cin >> r_value;
+				stack->push(std::make_shared <Rectangle> (cin));
 				break;
 			case 'd':
-				value = stack->Pop();
-				if (!value.IsEmpty)
-					cout << value << endl;
+				value = stack->pop();
+				if (value != NULL)
+					cout << *value << endl;
 				break;
 			case 'p':
 				//stack->Print();
