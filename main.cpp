@@ -8,7 +8,7 @@ using namespace std;
 
 int main(void)
 {
-	TStack *stack = new TStack;
+	std::shared_ptr<TStack> stack(new TStack);
 	cout << "-------------------------------------------\n";
 	cout << "Commands:\n";
 	cout << "s <value> - push Square to stack\n";
@@ -64,8 +64,6 @@ int main(void)
 		if (is_finished) break;
 	}
 	cout << "Goodbye!\n";
-
-	delete stack;
 
 	return 0;
 }
